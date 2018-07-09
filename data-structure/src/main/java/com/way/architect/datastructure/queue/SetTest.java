@@ -16,7 +16,7 @@ public class SetTest {
 
         Set<String> set = new HashSet<>();
         Print.info(set.add("hello world!"));
-        Print.info(set.add("hello world!"));
+        Print.info(set.add("hello world!!"));
 
     }
 
