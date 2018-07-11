@@ -1,9 +1,6 @@
 package com.way.architect.datastructure.queue;
 
-import com.way.architect.common.util.Print;
-
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Stack;
 
 /**
  * @author majunjie
@@ -11,13 +8,33 @@ import java.util.Set;
  */
 public class SetTest {
 
+    public static String isValid(String expstr) {
+        //创建栈
+        Stack<String> stack = new Stack<>();
 
-    public static void main(String[] args) {
+        int i = 0;
+        while (i < expstr.length()) {
+            char ch = expstr.charAt(i);
+            i++;
+            switch (ch) {
+                case '(':
+                    stack.push(ch + "");//左括号直接入栈
+                    break;
+                case ')':
+                    if (stack.isEmpty() || !stack.pop().equals("(")) //遇见右括号左括号直接出栈
+                        return "(";
+            }
+        }
+        //最后检测是否为空,为空则检测通过
+        if (stack.isEmpty())
+            return "check pass!";
+        else
+            return "check exception!";
+    }
 
-        Set<String> set = new HashSet<>();
-        Print.info(set.add("hello world!"));
-        Print.info(set.add("hello world!"));
-
+    public static void main(String args[]) {
+        String expstr = "((5-3)*8-2)";
+        System.out.println(expstr + "  " + isValid(expstr));
     }
 
 }
