@@ -39,6 +39,7 @@ public class Basket {
         Consumer consumer = basket.new Consumer();
         service.submit(producer);
         service.submit(consumer);
+
         // 程序运行10s后，所有任务停止
         try {
             Thread.sleep(10000);
